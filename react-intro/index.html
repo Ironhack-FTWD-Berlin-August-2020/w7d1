@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Intro</title>
+</head>
+<body>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0"></script>
+    <h1>
+        <div class="root"></div>
+    </h1>
+    <script type="text/babel">
+        const tick = () => {
+            const rootElement = document.querySelector('.root');
+            const time = new Date().toLocaleTimeString();
+
+            // without react
+            // const element = `
+            //     <div>
+            //         <div>Hello World</div>
+            //         ${time}
+            //     </div>
+            // `;
+            // rootElement.innerHTML = element;
+
+            // same functionaluty with react - only time get's replaced now
+            const element = <div>
+                    <div>Hello World</div>
+                    {time}
+                </div>
+            ReactDOM.render(element, rootElement);
+        }
+        tick();
+        setInterval(tick, 1000);
+    </script> 
+</body>
+</html>
